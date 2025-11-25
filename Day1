@@ -63,7 +63,27 @@ Certifications : -NA
  - 
 
 19. How will you ensure zero downtime for your application ?
+- Bluegreen deployment - Routing traffic to new version and slowly degrading the older version.
+
+20. Can we achieve zero down time upgrade using rollingupdate strategy.
+- Yes
+
+21. when should we use Rolling upgrade and BlueGreen strategy.
 - 
+
+22. How are you utilising AWS Karpenter ?
+- Readuces cost, availability of Node.
+
+23. & 24. I have to create Infrastructure for three different environments like DEV, Staging, Production. How will you manage the State file and the configuration file for them ?
+- workspace concepts, 
+
+25. what are the PRO and CON of using Terraform and cloudFormation.
+- Env history maintance.
+
+26. I have create a VPC andd other infrastructure using terraform. Someone manually changed a rule in security group. If you run terraform apply now, how will it behave.?
+- 
+
+
 
 
 
