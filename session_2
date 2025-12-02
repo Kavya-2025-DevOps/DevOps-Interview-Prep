@@ -1,0 +1,159 @@
+==================== Session 2 - 1 Dec 2025 ========================
+
+1.  Can you explain your CI/CD work flow and the Stages you intergrated in your Project.
+Ans: To build the multi stage we used Jenkins in our project.
+In Stage1 - we used Git checkout to take the code from the GitHub. We used Maven to build the code and 
+In the Next stage we used Sonarcube to check the CodeQuality. SAST/OWASP to check the Vulnerabilities.
+In the next , we used Docker to containerze the application Image, Used Quvi scanner to scan the application Image, and Later we deployed to AWS ECR. Kubernetes. We also used Monitoring tools like Prometues to collect and grafana to visualize the application health.
+All this is handled through the Jenkins and any stage fails , A notification is sent to the selected team members thru slack and outlook.
+
+We also use the shared library, for code reusability and minimize the dublicate code and manual effort on the same code.
+
+AI_Gen: In our project, we implemented a **multi-stage CI/CD pipeline using Jenkins**. 
+
+ Stage 1: Source Code Management & Build
+- **Git Checkout**: Retrieve the latest code from GitHub.  
+- **Maven Build**: Compile and package the application.
+
+ Stage 2: Code Quality & Security
+- **SonarQube**: Perform static code analysis to ensure code quality.  
+- **SAST/OWASP Checks**: Identify and mitigate security vulnerabilities.
+
+ Stage 3: Containerization & Image Scanning
+- **Docker**: Containerize the application into an image.  
+- **Quvi Scanner**: Scan the Docker image for vulnerabilities.
+
+Stage 4: Deployment
+- **AWS ECR**: Push the container image to Amazon Elastic Container Registry.  
+- **Kubernetes**: Deploy the application to the Kubernetes cluster for orchestration and scaling.
+
+ Stage 5: Monitoring & Visualization
+- **Prometheus**: Collect application and infrastructure metrics.  
+- **Grafana**: Visualize metrics and monitor application health.
+
+ Notifications & Alerts
+- **Jenkins Integration**: Orchestrates all stages in the pipeline.  
+- **Failure Handling**: If any stage fails, notifications are automatically sent to the selected team members via **Slack** and **Outlook**.
+
+This structured pipeline ensures **continuous integration, automated testing, secure deployments, and proactive monitoring**, making the application delivery process reliable and efficient.  
+
+----------------------------------------------------------------------------------------------------------------------
+
+2. Self Introduction and tools you have experence with
+
+Ans: - Thank You ! I have total 3 years of Experence. From last 3 Year I have worked on multiple tools.
+
+In my last project we has 55 micor services, amoung all those, our team supported 6 microservices related to Billing and Order management. Mostly I have taken care of Java microservices, I have set up end-to-end CI/CD pipelines.
+I have good experence in the version control system GIT and GITHUB repositories, As our project code in Hosted on GITHUB. For the CI/CD Intergration we have used Jenkins to automate the process. Internally we have setup Grovey script Declarative pipeline, this will automatically pickup any code commits. It will try to create the artifactor of that script, with the help of Maven build tool.
+Once the artifator is ready, we move code to Sonar cube to check the code quality and generate the report and pass it on to Developers team (They check for any vulnarabilities, duplicates, smells etc.).
+For the future reference , we have used nexus to take the Backup of that Artifatory.
+Additionally we have defined a testcases stage to check the Unit test cases.
+Finally, once every thing is good with that artifactory we are building a Docker Image.
+Once that Docker image is ready we are pusing it to AWS ECR.
+Internally we have private Docker regirties, we are keeping those Images . 
+we are creating a container with the help of K8s POD, trying to deploy the entire app to the K8s , for that we have seperate pipeline. This pipeline will take the Updated Image from the remote repo, and try to start as a K8s POD.
+Once the deployment is success, we have shell script that validate all the application status and the Health of all the PODS. This is integrated on Jenkins Level itself.
+
+AI_Gen: -
+- Hi, my name is [Your Name], and I have 4 years of experience in DevOps and cloud infrastructure automation. My expertise lies in building robust CI/CD pipelines, managing containerized applications, and automating infrastructure deployments.
+
+I’ve worked extensively with Jenkins for CI/CD orchestration, using Git for version control and Maven for build automation. For code quality and security, I’ve integrated SonarQube, OWASP, and SAST tools into our pipelines.
+
+On the containerization side, I use Docker to build application images and deploy them to AWS ECR and Kubernetes clusters. I’ve also used Quvi Scanner for image vulnerability scanning and implemented Helm charts for templated Kubernetes deployments.
+
+For infrastructure automation, I’ve used Terraform to provision cloud resources and Ansible for configuration management and post-deployment tasks. These tools have helped us maintain consistency across environments and reduce manual overhead.
+
+Monitoring and observability are handled through Prometheus and Grafana, which allow us to track application health and performance in real time. Alerts and notifications are configured via Slack and Outlook to ensure rapid response to any issues.
+
+I’m passionate about building scalable, secure, and automated systems that support continuous delivery and operational excellence."
+
+
+############ Updated Section (Without OWASP/SAST)
+"I’ve worked extensively with Jenkins for CI/CD orchestration, using Git for version control and Maven for build automation. For code quality, I’ve integrated SonarQube to perform static analysis and maintain clean, maintainable code.
+
+While I haven’t worked directly with OWASP or SAST tools yet, I’ve followed secure coding practices and collaborated with security teams to ensure our applications meet compliance standards. I’m familiar with vulnerability scanning tools like Quvi Scanner for container images and have experience managing secrets securely using Jenkins credentials and environment variables.
+
+########## Alternative Security Tools You Can Mention
+If you've used or are familiar with any of these, they make great substitutes:
+
+Quvi Scanner or Trivy: for container image vulnerability scanning
+SonarQube: for code quality and basic security issues
+Vault or AWS Secrets Manager: for secrets management
+SSL/TLS, IAM roles, Security Groups: for cloud security practices
+Basic Linux hardening: firewall rules, SSH key management
+
+----------------------------------------------------------------------------
+
+3. Your Resonsibilities or Day to Day activities.
+------------------------------------------------------------------------------------------
+4. Docker - Architecutre, Image related, container related, diff b/w Image and container, Networks , Volumes, List the docker container, container is not responding, check logs, Getin to container, cmd , if no Image in remote - what type of errors, other errors of demon, Are you using internal, or external volumnes, types of Networks, have you created any.
+--------------------------------------------------------------------------------------------
+5. Advantages of Docker compose.
+- Yes, Docker Compose is used in lower environments.
+We had a microservice-based application with a Node.js backend, a PostgreSQL database, and Redis for caching.Instead of running each service manually, I defined them in a docker-compose.yml file. (Note: this can be done with cmds as welll, but to perform in a structured way , we are using compose file, reduces manual effort)
+
+--- Docker Compose is useful because it lets you define and run multi-container applications with a single configuration file. It simplifies setup, ensures consistency across environments, and makes scaling services easier. In my project, I used Docker Compose to run a Node.js backend, PostgreSQL, and Redis together. This saved time during development and testing since the whole stack could be started with one command. For production, we later moved to Kubernetes, but Docker Compose was invaluable for local development and CI pipelines.
+Advantages:
+Multi-container orchestration: Easily define and run multiple services (e.g., app, database, cache) with one command.
+Simplified configuration: Uses a single docker-compose.yml file to describe services, networks, and volumes.
+Portability: Same configuration works across environments (local dev, staging, CI/CD).
+Isolation: Each service runs in its own container, avoiding dependency conflicts.
+Easy scaling: Can scale services up/down with simple commands.
+
+---------------------------------------------------------------------------------------
+
+6. what is Dockerfile, where you used it, what it contains. Docker file Instructions.
+-----------------------------------
+7. Diff b/w CMD and EntryPOINT. 
+
+8. what happens if N number of CMD are defined in the Docker file. Will the Previous CMD execute.
+
+9. We have RUN instruction, why are we going for CMD. Example: I have a shell script, I can run with RUN only , why are we going for CMD.
+ ADD, RUN
+
+10. I have a simple Shell script demo.sh - give a cmd to run in a docker file.
+
+Note: passing CMD line parameters, override exsiting parameters.
+
+----------------------------
+
+11. write a sample declarative file with all the stages - CI/CD pipeline, upto Docker is fine.
+
+(Scripted / Declarative learn them its manadatory)
+----------------------------------------------------------------------------------------
+
+12. How can you secure your K8s cluster.
+
+What all the Objects you are using in the RBAC. (Roles and Rolebinding)
+
+--------------------------------------------------------------------------------------
+
+13. what all the service in K8s.
+- Node port, ip, 
+
+14. what are you doing on K8s on daily basis, what type of tickets / tasks you are getting.
+
+---- If there are any issues identified, will be working on those, the recent issues was on application side , where the application was throwing 502,  
+some reverse proxy, load balancers.
+
+--> Logged into AWS console -> checked services load balancers -> Health is unhealthy ->  Went to that particular EC2 instance -> checked the logs and found some of the env variable where missing -> this was because of the recent deployment.
+
+--> K8s secerts were also were not in Sync.
+
+--> Fixed and restarte the deployment. Observed the Log and found they are normal
+
+Some of others tickets, -- resource constains, node constrains, PVC binding, Image Pull backup.
+
+45 mints --- 
+-----------------------------------------------------------------------------------------
+15. 
+
+
+
+
+
+
+
+
+
+
