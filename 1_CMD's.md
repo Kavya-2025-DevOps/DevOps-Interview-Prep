@@ -14,8 +14,6 @@ kubctl get pod -n <namespace>
 kubectl desc pod <podname>/<podID> -n <namespace>
 
 
-
-
 kubectl exec --> Used to go inside the container of a POD
 kubectl exec [POD_NAME] [-c CONTAINER_NAME] [FLAGS] -- [COMMAND] [ARGS...]
 
@@ -25,3 +23,10 @@ kubectl exec my-pod -c my-container -- date --> Exec into a specific container
 kubectl exec my-pod -- env --> Check environment variables
 
 
+
+
+
+
+
+
+*************************************************** **Docker** ******************************************
