@@ -28,6 +28,8 @@
 8. 
 9. 
 
+1. POD lifecycle , container lifecycle  
+2. 
 
 1. What is Static POD and How it works.? Usecases or examples.
 2. Init containers and Sidecar Containers ?
