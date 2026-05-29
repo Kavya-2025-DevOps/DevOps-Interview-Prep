@@ -3,12 +3,12 @@
 •	kubectl api-resources -> All Objects are shown  
 •	kubectl get nodes -> will give the number of nodes connected to it
 
-•	kubectl create ns <namespace> --> A New Namespace is created  
+•	kubectl create ns (namespace) --> A New Namespace is created  
 • kubectl get ns --> All available namespaces are shown
 
 •	kubectl apply  
-•	kubectl apply -f <filename.yaml> --dry-run=client --> Its checks for any syntax errors (Image version is not validated)  
-•	kubectl apply -f <filename.yaml> --> POD is created
+•	kubectl apply -f (filename.yaml) --dry-run=client --> Its checks for any syntax errors (Image version is not validated)  
+•	kubectl apply -f (filename.yaml) --> POD is created
 
 • kubectl get nodes
 •
@@ -18,7 +18,7 @@
 
 •	kubctl get pod -n (namespace)  
 •	kubectl get pod -o wide -n (namespace)  
-• kubectl get all -n <namespace>  
+• kubectl get all -n (namespace)  
 • kubectl desc pod (podname>/<podID) -n (namespace)  
 
 
