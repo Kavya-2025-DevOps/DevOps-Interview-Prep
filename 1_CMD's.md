@@ -16,10 +16,10 @@
 •
 
 
-•	kubctl get pod -n <namespace>  
-•	kubectl get pod -o wide -n <namespace>  
+•	kubctl get pod -n (namespace)  
+•	kubectl get pod -o wide -n (namespace)  
 • kubectl get all -n <namespace>  
-• kubectl desc pod <podname>/<podID> -n <namespace>  
+• kubectl desc pod (podname>/<podID) -n (namespace)  
 
 
 •	kubectl exec --> Used to go inside the container of a POD  
