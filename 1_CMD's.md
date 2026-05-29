@@ -16,10 +16,13 @@
 •
 
 
-•	kubctl get pod -n (namespace)  
-•	kubectl get pod -o wide -n (namespace)  
+•	kubectl get pods --> pods in default namespace  
+• lubectk get po -all-namespaces --> Shows all pods in all namespaces  
+• kubctl get pods -n (namespace)  
+•	kubectl get pods -o wide -n (namespace) --> pods are shown along with the node details  
+• 
 • kubectl get all -n (namespace)  
-• kubectl desc pod (podname>/<podID) -n (namespace)  
+• kubectl desc pod (podname/podID) -n (namespace)  
 
 
 •	kubectl exec --> Used to go inside the container of a POD  
@@ -36,6 +39,6 @@
 
 
 
+********************************** **Docker** ************************************
 
 
-*************************************************** **Docker** ******************************************
