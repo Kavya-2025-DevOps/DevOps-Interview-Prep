@@ -1,14 +1,14 @@
 ----------------------------- **Important CMD's to remember** -------------------------------------------
 
 •	kubectl api-resources -> All Objects are shown  
+• kubectl api-resources --namespace==true --> Objects only at namespace level  
+• kubectl api-resources --namespace==false --> Objects only at cluster level
 •	kubectl get nodes -> will give the number of nodes connected to it
 
 •	kubectl create ns (namespace) --> A New Namespace is created  
 • kubectl get ns --> All available namespaces are shown
 
-•	kubectl apply  
-•	kubectl apply -f (filename.yaml) --dry-run=client --> Its checks for any syntax errors (Image version is not validated)  
-•	kubectl apply -f (filename.yaml) --> POD is created
+
 
 • kubectl get nodes
 •
@@ -17,12 +17,16 @@
 
 
 •	kubectl get pods --> pods in default namespace  
-• lubectk get po -all-namespaces --> Shows all pods in all namespaces  
-• kubctl get pods -n (namespace)  
+• kubectl get po -all-namespaces --> Shows all pods in all namespaces  
+• kubectl get pods -n (namespace)  
 •	kubectl get pods -o wide -n (namespace) --> pods are shown along with the node details  
 • 
 • kubectl get all -n (namespace)  
 • kubectl desc pod (podname/podID) -n (namespace)  
+
+•	kubectl apply  
+•	kubectl apply -f (filename.yaml) --dry-run=client --> Its checks for any syntax errors (Image version is not validated)  
+•	kubectl apply -f (filename.yaml) --> POD is created
 
 
 •	kubectl exec --> Used to go inside the container of a POD  
@@ -32,6 +36,14 @@
 •	kubectl exec -it my-pod -- /bin/bash --> Open interactive bash shell  
 •	kubectl exec my-pod -c my-container -- date --> Exec into a specific container  
 •	kubectl exec my-pod -- env --> Check environment variables
+
+
+• kubectl delete po (podname) --> Delete the POD  
+•
+•
+•
+•
+
 
 
 
